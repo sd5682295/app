@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "node1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sd5682295"
+  ],
+  "author": "zzy",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "description": ""
+}

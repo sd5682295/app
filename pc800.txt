@@ -1,0 +1,71 @@
+：AT+CIPSTART="TCP","47.97.173.233","3000" 
+AT+IPOPEN="TCP","47.97.173.233","3000"
+：AT+CIPSEND
+
+
+AT+CGDCONT=1,"IP", "CMNET"
+AT+CGCLASS="B"
+AT+CIPCSGP=1,"CMNET"
+AT+CGDCONT=1,"IP","CMNET" 
+AT+CIPCSGP=1,”CMNET” 
+AT+CIPCSGP=1,”CMNET” 
+
+POST  HTTP/1.1
+Host: 47.97.173.233:3000
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+"a"="1"
+
+作者：Simon_z
+链接：https://www.jianshu.com/p/4f9e79eb0163
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+
+
+
+
+
+{ accept: '*/*',
+  'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-language': 'zh-CN',
+  'accept-encoding': 'gzip, deflate',
+  'user-agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like
+Gecko',
+  host: '172.16.252.164:3000',
+  'content-length': '3',
+  dnt: '1',
+  connection: 'Keep-Alive',
+  'cache-control': 'no-cache' }
+<Buffer 61 3d 31>
+
+POST /http://47.97.173.233:3000 HTTP/1.1
+   accept: '*/*',
+  content-type: application/x-www-form-urlencoded; charset=UTF-8,
+  accept-language: zh-CN,
+  accept-encoding: 'gzip, deflate',
+  user-agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko,
+  
+
+  host: 172.16.252.164:3000,
+  content-length: 12,
+  dnt: 1,
+  connection: Keep-Alive,
+  cache-control: no-cache}
+<Buffer 61 3d 31>
+
+sn=123&n=asa
+
+POST /sn/47.97.173.233:3000 HTTP/1.1
+Accept: */*
+Accept-Language: zh-cn
+host: 47.97.173.233:3000
+
+
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 12
+Connection:Keep-Alive
+sn=123&n=asa

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<script src ="http://47.97.173.233:3000/socket.io/socket.io.js">
+
+
+</script>
+<script>
+var ws = io.connect('ws://47.97.173.233:3000');
+ws.on('time',function (result) {
+  console.log(result);
+})
+</script>
+  </body>
+</html>

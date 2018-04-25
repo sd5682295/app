@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>管理文件</title>
+
+</head>
+
+<body>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<!-- <script type="text/javascript" src="../script/aui-range.js"></script> -->
+<script type="text/javascript" src="../script/APICloud-rest.js"></script>
+<script type="text/javascript" src="../script/SHA1.js"></script>
+<script type="text/javascript" src="../script/APICloud-rest-SHA1.js"></script>
+<!-- <script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript" src="../script/aui-dialog.js"></script>
+<script type="text/javascript" src="../script/aui-popup-new.js"></script>
+<script type="text/javascript" src="../script/aui-actionsheet.js"></script> -->
+<script type="text/javascript" src="../script/zzy.js"></script>
+<script type="text/javascript" src="../script/zepto.min.js"></script>
+<script type="text/javascript" src="../script/vue.min.js"></script>
+<script type="text/javascript" src="../script/zzyx.js"></script>
+<script type="text/javascript" src="../script/zzyclass.js"></script>
+<script type="text/javascript">
+
+
+
+    function cdb(a) {
+        this.data = a;
+        this.deviceId = api.deviceId
+    }
+
+ 
+
+function fnmanage() {
+    
+}
+
+
+/**
+* @title:初始化
+* @content:创建一个属性赋值从服务器获取的信息
+* @import getsend
+*/
+
+
+fnmanage.prototype.init = function (ikey) {
+    this.data=getsend('key'=ikey);
+};
+ 
+/**
+ * @title:创建
+ * @content:在对象相应的位置按照模板创建对象
+ * 
+ */
+
+
+fnmanage.prototype.creat = function (ikey,ivalue) {
+    ikey.push(ivalue)
+}
+
+
+fnmanage.prototype.edit = function () {
+    
+}
+
+
+
+    apiready = function () {
+
+
+        /**
+         * @title:初始化系统
+         * @content:读取数据
+         *    1依据deviceId读取数据
+        */
+
+        zzygetadd();
+        api.addEventListener({
+            name: 'start'
+        }, function (ret, err) {
+
+            zzygetsend('sdeviceId', "list1", {
+                "deviceId": api.deviceId
+            })
+        });
+
+
+
+        /**
+         * @content:判断数据
+         *    1判断是否有数据
+         *    2如果没数据,初始化账户(根据模板输入初始数据)
+         *    3如果有数据，读取数据保存在字典中
+         */
+
+        api.addEventListener({
+            name: 'sdeviceId'
+        }, function (ret, err) {
+            if (ret.value.key.length === 0) {
+                var data_value = finit();
+                var mode = new cmode(data_value);
+            } else {
+                var mode = new cmode(ret.value.key.data_value);
+                aaobj = ret.value.key;
+                // zzyalert('aaobj',aaobj);
+                var aolen = aaobj.length
+                for (var i = 0; i < aolen; i++) {
+                    if (aaobj[i].no == api.deviceId) {
+                        ftdata = aaobj[i]
+                    }
+                }
+                zzysend('fflash', ftdata);
+            };
+        });
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @title:修改
+ * @content:查找相应键按照模板修改对应的属性
+ * 
+ */
+
+/**
+ * @title:删除
+ * @content:
+ *     1 查找并删除相应的键
+ *     2 使用递归和 异步删除树下的所有值
+ * 
+ */
+
+/**
+ * @title:查询信息
+ * @content:根据字典查询，不需要同步数据库
+ * 
+ */
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

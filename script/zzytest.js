@@ -1,49 +1,48 @@
 
 
 
-function FFun() {
-	
+class FFun {
+	constructor() {
+	}
+	alt() {
+		alert(this.data);
+	}
+	post() {
+		$.post(this.ary[0], this.ary[1], function (data, status) {
+			console.log(data);
+			alert("数据: " + data + "\n状态: " + status);
+		});
+	}
 }
 
-	FFun.prototype.alt = function() {
-		alert(this.data)
-	};
-	FFun.prototype.post = function() {
-		$.post(this.ary[0],
-this.ary[1],function(data,status){
-	console.log(data);
-		alert("数据: " + data + "\n状态: " + status);
-			}
-		);
-	};
 
 
 
 
 
-function ZzyDoc() {
-
-			this.data = "";
-			this.ary = [];
-	for (var i = arguments.length - 1; i >= 0; i--) {
-		this.ary[i] =  document.getElementById(arguments[i]).value;
-
-		this.data+=this.ary[i]
+class ZzyDoc {
+	constructor() {
+		this.data = "";
+		this.ary = [];
+		for (var i = arguments.length - 1; i >= 0; i--) {
+			this.ary[i] = document.getElementById(arguments[i]).value;
+			this.data += this.ary[i];
+		}
 	}
-
-};
+}
+;
  ZzyDoc.prototype = new FFun();
 
 
-function ZzyVar() {
-			this.data = "";
-			this.ary = [];
-	for (var i = arguments.length - 1; i >= 0; i--) {
-		
-		this.ary[i] = arguments[i];
-
-		this.data+= this.ary[i]
-		// alert(this.data)
+class ZzyVar {
+	constructor() {
+		this.data = "";
+		this.ary = [];
+		for (var i = arguments.length - 1; i >= 0; i--) {
+			this.ary[i] = arguments[i];
+			this.data += this.ary[i];
+			// alert(this.data)
+		}
 	}
 }
 
@@ -52,16 +51,17 @@ ZzyVar.prototype = new FFun();
 /**
  * @test
  */
-function fftest() {
-	this.gga = 'bb';
-
-	
-};
+class fftest {
+	constructor() {
+		this.gga = 'bb';
+	}
+	alt() {
+		alert(this.gga);
+	}
+}
+;
 fftest.prototype.ggb = "cc";
 
-fftest.prototype.alt = function () {
-	alert(this.gga)
-}
 
 /**
  * @title: mode

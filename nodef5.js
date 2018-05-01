@@ -20,6 +20,20 @@ newserver('172.16.76.115','3000');
 
 
 
+// function server_callback(sig,data_obj,key_ary) {
+//         event.once(sig,function(data){
+//         // console.log(JSON.parse(arg1).a);
+//         var s1 = JSON.parse(arg1)[JSON.parse(JSON.stringify(ary)).data.a];
+//         var s2 = JSON.stringify(s1);
+//         res.end(s2);
+                     
+//                    });
+//     }
+
+
+
+
+
 function newserver(iip,iport){
 	
     let server = http.createServer(function(req,res){
@@ -48,6 +62,9 @@ function newserver(iip,iport){
 				
 //# ary.signalw = (ary.data.name+'write'+con);
 
+function name_to_sig(iname) {
+   isig[con] = (ary.data.name+'end'+con)
+}
 			ary.signale = (ary.data.name+'end'+con);
 			con+=1;
 				
@@ -85,9 +102,12 @@ function newserver(iip,iport){
      
           
     });
+
+
+
+
     server.listen(iport,iip);
 
- 
 
 
 	event.on('pubb',function(arg1){
